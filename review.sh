@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SKILLS_DIR="$SCRIPT_DIR/.claude/skills"
+SKILLS_DIR="$HOME/.claude/skills"
 CONFIG_FILE="$SCRIPT_DIR/.share-config"
 
 # Colors
@@ -131,9 +131,9 @@ for block in content.split('====FILE:')[1:]:
 
     echo ""
     echo -e "  ${GREEN}Loaded${NC} skill from ${BOLD}$name${NC} ($file_count file(s))"
-    echo -e "  → .claude/skills/repo-roast-$safe_name/"
+    echo -e "  → ~/.claude/skills/repo-roast-$safe_name/"
     echo ""
-    echo "  Now ask Claude to use repo-roast-$safe_name to roast a repo."
+    echo "  Available globally — ask Claude in any repo to use repo-roast-$safe_name."
     echo "  Clean up with: ./review.sh --clean"
   else
     echo -e "${RED}Error:${NC} Skill not found (id: $id)"
