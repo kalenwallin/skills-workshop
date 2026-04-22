@@ -5,8 +5,8 @@ info: |
   ## Skills at Scale
   Portable skills for Claude Code, Codex, Cursor, and your own agents.
 
-  An 80-minute hands-on workshop at AIE Europe 2026.
-author: Nick Nisi & Zack Proser
+  An 80-minute hands-on workshop
+author: Nick Nisi
 keywords: skills,agents,claude,ai
 highlighter: shiki
 drawings:
@@ -31,9 +31,9 @@ Portable skills for Claude Code, Codex, Cursor, and your own agents
 <img src="/hero-pixel.png" class="absolute inset-0 w-full h-full object-cover opacity-10" />
 
 <div class="abs-br m-6 flex gap-2 text-sm opacity-50">
-  <span>Nick Nisi & Zack Proser</span>
+  <span>Nick Nisi</span>
   <span>·</span>
-  <span>AIE Europe 2026</span>
+  <span>WorkOS Quarterly Onsite, April 2026</span>
 </div>
 
 <!--
@@ -56,17 +56,19 @@ class: bg-[#6363F1]
 
 <h1 class="!text-white text-center mb-6">Who we are</h1>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-1 gap-8">
 <div class="p-6 rounded-2xl bg-white shadow-lg text-center">
   <img src="/nick-nisi.webp" class="w-28 h-28 rounded-full object-cover mx-auto mb-3 ring-3 ring-white/50" />
   <div class="text-2xl font-bold text-gray-900">Nick Nisi</div>
   <div class="text-sm text-gray-500 mt-1">DX Engineer · Applied AI · WorkOS</div>
 </div>
+  <!--
 <div class="p-6 rounded-2xl bg-white shadow-lg text-center">
   <img src="/zack-proser.webp" class="w-28 h-28 rounded-full object-cover mx-auto mb-3 ring-3 ring-white/50" />
   <div class="text-2xl font-bold text-gray-900">Zack Proser</div>
   <div class="text-sm text-gray-500 mt-1">DX Engineer · Applied AI · WorkOS</div>
 </div>
+-->
 </div>
 
 <div class="mt-6 text-center text-white/90 text-sm">
