@@ -15,3 +15,4 @@ node_modules/
 slides/dist/
 
 # Track .claude/skills/ so attendees get the starter skill on clone
+.env
