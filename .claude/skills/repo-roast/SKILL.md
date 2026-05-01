@@ -15,3 +15,4 @@ Stale TODOs: !`grep -rn "TODO\|FIXME" . --include="*.*" --exclude-dir=node_modul
 1. One-line health verdict (with overall score out of 10)
 2. Top findings, each with: issue, evidence, severity, fix
 3. One thing the repo does well
+
