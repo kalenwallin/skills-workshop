@@ -3,6 +3,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILL_DIR="$SCRIPT_DIR/.claude/skills/repo-roast"
+VISUAL_SKILL_DIR="$SCRIPT_DIR/.claude/skills/repo-roast-visual"
 CONFIG_FILE="$SCRIPT_DIR/.share-config"
 
 # Colors
@@ -14,7 +15,7 @@ usage() {
   echo "Usage: $0 [--name \"Your Name\"]"
   echo ""
   echo "  Share your Repo Roast skill with the presenter."
-  echo "  Bundles all files from .claude/skills/repo-roast/"
+  echo "  Bundles all files from .claude/skills/repo-roast/ and .claude/skills/repo-roast-visual/"
   exit 0
 }
 
@@ -67,18 +68,30 @@ trap "rm -f $TMPFILE" EXIT
 
 FILE_COUNT=0
 {
-  # Find all files, exclude .bak, write delimited bundle
+  # Bundle repo-roast skill files
   while IFS= read -r filepath; do
-    relpath="${filepath#"$SKILL_DIR/"}"
+    relpath="repo-roast/${filepath#"$SKILL_DIR/"}"
     echo "====FILE:${relpath}===="
     cat "$filepath"
     echo ""
     FILE_COUNT=$((FILE_COUNT + 1))
-  done < <(find "$SKILL_DIR" -type f ! -name '*.bak' | sort)
+  done < <(find "$SKILL_DIR" -type f ! -name '*.bak' ! -name '*.png' ! -name '*.mp4' ! -name 'pnpm-lock.yaml' -not -path '*/node_modules/*' | sort)
+
+  # Bundle repo-roast-visual skill files (if present)
+  if [ -d "$VISUAL_SKILL_DIR" ]; then
+    while IFS= read -r filepath; do
+      relpath="repo-roast-visual/${filepath#"$VISUAL_SKILL_DIR/"}"
+      echo "====FILE:${relpath}===="
+      cat "$filepath"
+      echo ""
+      FILE_COUNT=$((FILE_COUNT + 1))
+    done < <(find "$VISUAL_SKILL_DIR" -type f ! -name '*.bak' ! -name '*.png' ! -name '*.mp4' ! -name 'pnpm-lock.yaml' -not -path '*/node_modules/*' | sort)
+  fi
+
   echo "====END_BUNDLE===="
 } > "$TMPFILE"
 
-echo "Bundling $FILE_COUNT file(s) from repo-roast/..."
+echo "Bundling $FILE_COUNT file(s) from repo-roast/ and repo-roast-visual/..."
 
 # Share it
 echo "Sharing your skill..."
